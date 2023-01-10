@@ -1,6 +1,6 @@
-package org.eagle.chain;
+package org.eagle.chain.data.mapper;
 
-import org.eagle.chain.data.rocks.core.AsyncKVStore;
+import org.eagle.chain.data.model.AccountInfo;
 import org.eagle.chain.data.rocks.core.KVStore;
 import org.eagle.chain.data.rocks.core.RocksDBConfiguration;
 
@@ -9,8 +9,8 @@ import org.eagle.chain.data.rocks.core.RocksDBConfiguration;
  * @version create time：2023/1/10 16:50
  * @describe:
  */
-public class ItemDemoRepository extends KVStore<String, ItemDemo> {
-    public ItemDemoRepository(final RocksDBConfiguration configuration) {
+public class AccountInfoMapper extends KVStore<String, AccountInfo> {
+    public AccountInfoMapper(final RocksDBConfiguration configuration) {
         super(configuration);
     }
 }

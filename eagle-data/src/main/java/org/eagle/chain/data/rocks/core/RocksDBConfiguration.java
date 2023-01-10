@@ -29,6 +29,9 @@ public final class RocksDBConfiguration {
         this.threadCount = threadCount;
     }
 
+    public RocksDBConfiguration() {
+    }
+
     public String path() {
         return path;
     }
