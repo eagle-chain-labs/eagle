@@ -9,6 +9,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 /file-dir/
 */log/*
+*/log/*
 */logs/*
 ######################################################################
 # IDE

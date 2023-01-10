@@ -23,8 +23,7 @@ public abstract class RocksDBConnection {
 
         try {
             final Options options = new Options().setCreateIfMissing(true);
-            final String root = System.getProperty("user.dir");
-            final String rocksDirectory = root + configuration.url();
+            final String rocksDirectory =configuration.url();
             final Path path = Paths.get(rocksDirectory);
             createDirectories(path);
             rocksDB = RocksDB.open(options, path.toString());
