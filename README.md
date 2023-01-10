@@ -1,5 +1,5 @@
 
-## 平台简介
+## Introduction
 We must bravely follow the upcoming new future and make ourselves an indispensable part. Don't just sit there waiting for the turning point to happen. Find a unique role that you can play and accelerate its arrival.
 
 
