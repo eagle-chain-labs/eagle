@@ -1,6 +1,7 @@
 package org.eagle.chain;
 
 import lombok.extern.slf4j.Slf4j;
+import org.eagle.chain.data.config.RocksConfig;
 import org.eagle.chain.data.rocks.core.RocksDBConfiguration;
 import org.eagle.chain.data.rocks.core.exception.FindFailedException;
 import org.eagle.chain.data.rocks.core.exception.SaveFailedException;
@@ -22,18 +23,17 @@ import java.util.concurrent.ExecutionException;
 public class RocksTest {
     @Test
     public void testSave() throws SaveFailedException {
-        System.out.println(System.getProperty("user.dir"));
-        final RocksDBConfiguration configuration = new RocksDBConfiguration("D:\\data\\rocks\\rocksdb\\account", "item");
-        final ItemDemoRepository itemRepository = new ItemDemoRepository(configuration);
+        RocksConfig.build("D:\\data\\rocks\\rocksdb\\account",5);
+        final ItemDemoRepository itemRepository = new ItemDemoRepository();
         final ItemDemo item = new ItemDemo("0x123", new BigInteger("1000000"));
         itemRepository.save(item.getAddress(), item);
     }
 
     @Test
     public void testGet() throws FindFailedException, DeserializationException {
-        System.out.println(System.getProperty("user.dir"));
-        final RocksDBConfiguration configuration = new RocksDBConfiguration("D:\\data\\rocks\\rocksdb\\account", "item");
-        final ItemDemoRepository itemRepository = new ItemDemoRepository(configuration);
+        RocksConfig.build("D:\\data\\rocks\\rocksdb\\account",5);
+
+        final ItemDemoRepository itemRepository = new ItemDemoRepository();
         final Optional<ItemDemo> itemOptional = itemRepository.findByKey("0x123");
         final Collection<ItemDemo> all = itemRepository.findAll();
         //itemRepository.deleteByKey(item.getAddress());

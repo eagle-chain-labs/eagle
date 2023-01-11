@@ -10,7 +10,5 @@ import org.eagle.chain.data.rocks.core.RocksDBConfiguration;
  * @describe:
  */
 public class ItemDemoRepository extends KVStore<String, ItemDemo> {
-    public ItemDemoRepository(final RocksDBConfiguration configuration) {
-        super(configuration);
-    }
+
 }

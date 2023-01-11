@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
  * @param <K> Key type.
  * @param <V> Value type.
  */
-public class KVStore<K, V> extends RocksDBConnection implements KeyValueStore<K, V> {
+public class KVStore<K, V> extends RocksDBConnection<K, V> implements KeyValueStore<K, V> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KVStore.class);
 
@@ -34,42 +34,35 @@ public class KVStore<K, V> extends RocksDBConnection implements KeyValueStore<K,
     /**
      * Default constructor which automatically infers key and value types needed for mapper creation.
      *
-     * @param configuration for {@link RocksDBConnection}.
      */
-    public KVStore(final RocksDBConfiguration configuration) {
-        super(configuration);
+    public KVStore() {
+        super();
         this.keyMapper = MapperFactory.createFor(extractKeyType());
         this.valueMapper = MapperFactory.createFor(extractValueType());
     }
 
     /**
      *
-     * @param configuration for {@link RocksDBConnection}.
      * @param keyType for mapper.
      * @param valueType for mapper.
      */
     public KVStore(
-            final RocksDBConfiguration configuration,
             final Class<K> keyType,
             final Class<V> valueType
     ) {
-        super(configuration);
         this.keyMapper = MapperFactory.createFor(keyType);
         this.valueMapper = MapperFactory.createFor(valueType);
     }
 
     /**
      *
-     * @param configuration for {@link RocksDBConnection}.
      * @param keyMapper custom key mapper that implements {@link Mapper}.
      * @param valueMapper custom value mapper that implements {@link Mapper}.
      */
     public KVStore(
-            final RocksDBConfiguration configuration,
             final Mapper<K> keyMapper,
             final Mapper<V> valueMapper
     ) {
-        super(configuration);
         this.keyMapper = keyMapper;
         this.valueMapper = valueMapper;
     }

@@ -10,7 +10,5 @@ import org.eagle.chain.data.rocks.core.RocksDBConfiguration;
  * @describe:
  */
 public class AccountInfoMapper extends KVStore<String, AccountInfo> {
-    public AccountInfoMapper(final RocksDBConfiguration configuration) {
-        super(configuration);
-    }
+
 }

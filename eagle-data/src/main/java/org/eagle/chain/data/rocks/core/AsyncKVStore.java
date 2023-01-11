@@ -9,6 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
+import org.eagle.chain.data.config.RocksConfig;
 import org.eagle.chain.data.rocks.core.exception.DeleteAllFailedException;
 import org.eagle.chain.data.rocks.core.exception.DeleteFailedException;
 import org.eagle.chain.data.rocks.core.exception.FindFailedException;
@@ -39,23 +40,21 @@ public abstract class AsyncKVStore<K, V> implements AsyncKeyValueStore<K, V> {
      * @param configuration for {@link RocksDBConnection}.
      */
     public AsyncKVStore(final RocksDBConfiguration configuration) {
-        this.underlying = new KVStore<>(configuration, extractKeyType(), extractValueType());
+        this.underlying = new KVStore<>(extractKeyType(), extractValueType());
         this.executorService = Executors.newFixedThreadPool(configuration.threadCount());
     }
 
     /**
      *
-     * @param configuration for {@link RocksDBConnection}.
      * @param keyType for mapper.
      * @param valueType for mapper.
      */
     public AsyncKVStore(
-            final RocksDBConfiguration configuration,
             final Class<K> keyType,
             final Class<V> valueType
     ) {
-        this.underlying = new KVStore<>(configuration, keyType, valueType);
-        this.executorService = Executors.newFixedThreadPool(configuration.threadCount());
+        this.underlying = new KVStore<>(keyType, valueType);
+        this.executorService = Executors.newFixedThreadPool(RocksConfig.getThreadCount());
     }
 
     /**
@@ -69,7 +68,7 @@ public abstract class AsyncKVStore<K, V> implements AsyncKeyValueStore<K, V> {
             final Mapper<K> keyMapper,
             final Mapper<V> valueMapper
     ) {
-        this.underlying = new KVStore<>(configuration, keyMapper, valueMapper);
+        this.underlying = new KVStore<>(keyMapper, valueMapper);
         this.executorService = Executors.newFixedThreadPool(configuration.threadCount());
     }
 
