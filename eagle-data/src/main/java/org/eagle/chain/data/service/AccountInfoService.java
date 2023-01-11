@@ -7,6 +7,7 @@ import org.eagle.chain.data.model.AccountInfo;
  * @version create time：2023/1/10 20:05
  * @describe:
  */
+
 public interface AccountInfoService {
     AccountInfo save(AccountInfo accountInfo);
 }
