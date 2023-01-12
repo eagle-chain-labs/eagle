@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * RPC Decoder
  *
- * @author luxiaoxun
+ * @author ApacheMoy
  */
 public class RpcDecoder extends ByteToMessageDecoder {
     private static final Logger logger = LoggerFactory.getLogger(RpcDecoder.class);
