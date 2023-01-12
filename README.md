@@ -25,12 +25,12 @@ org.eagle
   
 - Planned deadline：
   - 2023.05
-###2.0: Eagle-Chain will implement EVM modules that support solidity, allowing developers to deploy smart contracts on Eagle-Chain by themselves
+### 2.0: Eagle-Chain will implement EVM modules that support solidity, allowing developers to deploy smart contracts on Eagle-Chain by themselves
 
 - Feature:
   - Support solidity-based EVM module
 - Planned deadline：
   - 2023.08
   
-###3.0: Eagle-Chain plans to realize the inter-chain communication module, and the specific plan will be adjusted according to the 2.0 R&D progress
+### 3.0: Eagle-Chain plans to realize the inter-chain communication module, and the specific plan will be adjusted according to the 2.0 R&D progress
   
